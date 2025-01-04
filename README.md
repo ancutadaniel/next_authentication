@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Authentication Project
+
+A modern Next.js application with Google authentication, dark/light theme support, and Material UI components.
+
+## Features
+
+- 🔐 Google Authentication
+- 🌓 Dark/Light Theme
+- 📱 Responsive Design
+- 🎨 Material UI Components
+- 📝 Contact Form with Server Actions
+- 🔒 Secure Environment Configuration
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
+git clone <your-repo-url>
+cd next-authentication
+```
+
+2. Install dependencies:
+
+```bash
+yarn install
+```
+
+3. Set up environment variables:
+
+   - Copy `.env.example` to `.env.local`
+   - Fill in your Google OAuth credentials
+   - Generate a secure NEXTAUTH_SECRET using:
+     ```bash
+     openssl rand -base64 32
+     ```
+
+4. Set up Google OAuth:
+
+   - Go to [Google Cloud Console](https://console.cloud.google.com)
+   - Create a new project or select existing one
+   - Enable Google+ API
+   - Create OAuth credentials
+   - Add authorized redirect URIs:
+     - `http://localhost:3000/api/auth/callback/google`
+     - `http://localhost:3000/api/auth/signin/google`
+
+5. Run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with the following variables:
 
-## Learn More
+```env
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-generated-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 14
+- TypeScript
+- Material UI
+- NextAuth.js
+- React Server Actions
