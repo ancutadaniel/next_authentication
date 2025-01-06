@@ -5,19 +5,19 @@ const projects = [
   {
     title: "Project One",
     description: "A modern web application built with Next.js and Material UI.",
-    image: "https://source.unsplash.com/random/400x300?tech",
+    image: "https://picsum.photos/400/300",
     tech: ["Next.js", "React", "TypeScript"],
   },
   {
     title: "Project Two",
     description: "Mobile-first responsive design with cutting-edge features.",
-    image: "https://source.unsplash.com/random/400x300?coding",
+    image: "https://picsum.photos/400/300",
     tech: ["React Native", "Firebase", "Node.js"],
   },
   {
     title: "Project Three",
     description: "Cloud-based solution for enterprise customers.",
-    image: "https://source.unsplash.com/random/400x300?cloud",
+    image: "https://picsum.photos/400/300",
     tech: ["AWS", "Docker", "Kubernetes"],
   },
 ];
