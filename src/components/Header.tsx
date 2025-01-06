@@ -13,15 +13,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useTheme } from "next-themes";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const { data: session } = useSession();
   const [mounted, setMounted] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -29,10 +27,6 @@ export default function Header() {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -65,10 +59,6 @@ export default function Header() {
             </Link>
           </Tooltip>
         </Box>
-
-        <IconButton onClick={toggleTheme} color="inherit" sx={{ mr: 2 }}>
-          {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
 
         {session ? (
           <Box sx={{ display: "flex", alignItems: "center" }}>
